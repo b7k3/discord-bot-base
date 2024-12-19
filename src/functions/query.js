@@ -6,7 +6,7 @@ import { EditedMessage } from "telegram/events/EditedMessage";
 
 export async function consultar({ module, query, json }) {
 
-
+//dsd
 
     await telegram.sendMessage("BINGSIXBOT", {
         message: `/${module} ${query}`
