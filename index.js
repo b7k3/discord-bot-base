@@ -2,7 +2,6 @@ import dotenv from 'dotenv';
 import { Client, GatewayIntentBits } from 'discord.js';
 import path from 'path';
 import fs from 'fs';
-import chalk from 'chalk';
 import { pathToFileURL } from 'url';
 
 dotenv.config();
