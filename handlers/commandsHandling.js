@@ -3,7 +3,6 @@ import { join, dirname } from 'path';
 import fs from 'fs';
 import { Collection, REST, Routes } from 'discord.js';
 import chalk from 'chalk';
-import ora from 'ora';
 
 export default async (client) => {
 
