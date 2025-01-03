@@ -40,18 +40,15 @@ export default async (client) => {
 
     }
 
-
     const rest = new REST().setToken(process.env.TOKEN);
 
     try {
-        const refreshCommands = ora(' | ' + chalk.yellow("Atualizando ") + client.commandArray.length + chalk.yellow(" comandos da aplicação")).start();
-
         const data = await rest.put(
             Routes.applicationCommands(process.env.CLIENT_ID),
             { body: client.commandArray },
         );
 
-        refreshCommands.succeed(' | ' + data.length + chalk.yellow(" Comando's atualizado com sucesso!"));
+      console.log('✅ | ' + data.length + chalk.yellow(" Comando's atualizado com sucesso!"));
     } catch (error) {
         console.error(error);
     }
