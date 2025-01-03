@@ -17,9 +17,9 @@ const client = new Client({
     ]
 });
 
-const handlersPath = path.resolve('./handlers');
-
 const loadHandlers = async () => {
+    const handlersPath = path.resolve('./handlers');
+
     const handlers = fs.readdirSync(handlersPath).filter(file => file.endsWith('.js'));
     for (const file of handlers) {
         const handler = await import(pathToFileURL(path.join(handlersPath, file)).href);
@@ -31,6 +31,6 @@ const loadHandlers = async () => {
     await loadHandlers();
     
     client.login(process.env.TOKEN).catch(err => {
-        console.error("❌ |", chalk.red(err.message));
+        throw new Error(err);
     });
 })();

@@ -1,4 +1,4 @@
-import { Client, Events } from 'discord.js';
+import { Client, Events, MessageFlags } from 'discord.js';
 
 export default {
     name: Events.InteractionCreate,
@@ -32,6 +32,8 @@ export default {
                 console.error(err)
             }
         }
+
+        
 
 
     }
