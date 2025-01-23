@@ -8,6 +8,8 @@ export default {
     */
     async execute(interaction, client) {
 
+        if (!interaction.guild) return
+
         if (interaction.isChatInputCommand()) {
             const command = interaction.client.commands.get(interaction.commandName);
             if (!command) {
@@ -15,7 +17,7 @@ export default {
             }
 
             try {
-                await command.execute(interaction);
+                await command.execute(interaction, client);
             } catch (error) {
                 console.error(error);
             }
@@ -32,9 +34,5 @@ export default {
                 console.error(err)
             }
         }
-
-        
-
-
     }
 };
