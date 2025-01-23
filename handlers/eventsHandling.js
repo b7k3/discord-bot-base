@@ -15,9 +15,9 @@ export default async (client) => {
         const filePath = pathToFileURL(join(eventsPath, file)).href;
         const event = await import(filePath);
         if (event.default.once) {
-            client.once(event.default.name, (...args) => event.default.execute(...args));
+            client.once(event.default.name, (...args) => event.default.execute(...args, client));
         } else {
-            client.on(event.default.name, (...args) => event.default.execute(...args));
+            client.on(event.default.name, (...args) => event.default.execute(...args, client));
         }
     }
 };
